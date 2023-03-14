@@ -1,6 +1,22 @@
 // DEPENDENCIES
+require('dotenv').config
 const express = require('express')
 const app = express()
+const { Sequelize } = require ('sequelize')
+const sequelize = new Sequelize(process.env.PG_URI)
+const port = 3001
+// CONTROLLERS 
+const bandsController = require('./controllers/bands_controller')
+app.use('/bands', bandsController)
+
+
+try {
+    sequelize.authenticate() 
+    console.log(`Connected with Sequelize at ${process.env.PG_URI}`) 
+} catch(err) {
+    console.log(`Unable to connect to PG: ${err}`) 
+}
+
 
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config()
