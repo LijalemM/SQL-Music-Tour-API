@@ -1,5 +1,5 @@
-{
 
+{
   "development": {
     "username": "postgres",
     "password": "Lijalem123",
@@ -22,3 +22,4 @@
     "dialect": "postgres"
   }
 }
+
